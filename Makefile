@@ -3,6 +3,7 @@ repository=portainer
 .PHONY: deploy remove logs
 
 deploy:
+	mkdir -p /var/docker/${repository}/data
 	docker stack deploy -c stack.yml ${repository}
 
 remove:

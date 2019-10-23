@@ -15,7 +15,7 @@ services:
     volumes:
       - "/var/docker/portainer/data:/data"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "/usr/local/bin/docker:/usr/bin/docker"
+      - "/bin/docker:/usr/bin/docker"
 networks:
   portainernet:
     name: portainernet

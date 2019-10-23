@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+  portainer:
+    hostname: portainer
+    image: portainer/portainer:1.22.1
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    # ports:
+    #   - "8000:8000"
+    #   - "9000:9000"
+    networks:
+      - portainernet
+    volumes:
+      - "/var/docker/portainer/data:/data"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/usr/local/bin/docker:/usr/bin/docker"
+networks:
+  portainernet:
+    name: portainernet
